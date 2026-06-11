@@ -1,201 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daily Devotional | Welcome Baptist Church</title>
-<meta name="description" content="A verse for today and a daily Bible reading plan from Welcome Baptist Church.">
-<link rel="stylesheet" href="css/style.css">
-<style>
-  .votd {
-    background: var(--white); border: 1px solid var(--line); border-left: 5px solid var(--gold);
-    border-radius: 6px; padding: 2rem; text-align: center; margin-bottom: 2rem;
-  }
-  .votd .text { font-size: 1.25rem; font-style: italic; color: var(--navy); line-height: 1.6; margin-bottom: .75rem; }
-  .votd .ref { color: var(--gold); letter-spacing: .08em; text-transform: uppercase; font-size: .9rem; }
-  .reading-cards { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
-  @media (min-width: 700px) { .reading-cards { grid-template-columns: 1fr 1fr; } }
-</style>
-</head>
-<body>
+# Welcome Baptist Church Website — Go-Live & Handoff Guide
 
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="index.html">
-      <span class="name">Welcome Baptist Church</span>
-      <span class="tag">Piedmont, Alabama &middot; Est. 1968</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
-    <nav class="site-nav" id="nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li class="has-drop">
-          <a href="about.html">About <span class="caret">&#9662;</span></a>
-          <ul class="drop">
-            <li><a href="about.html">Our Church</a></li>
-            <li><a href="beliefs.html">What We Believe</a></li>
-            <li><a href="missions.html">Missions</a></li>
-          </ul>
-        </li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="sermons.html">Sermons</a></li>
-        <li><a href="salvation.html">Plan of Salvation</a></li>
-        <li class="has-drop">
-          <a href="bible.html" class="active">Resources <span class="caret">&#9662;</span></a>
-          <ul class="drop">
-            <li><a href="bible.html">Online Bible</a></li>
-            <li><a href="devotional.html" class="active">Daily Devotional</a></li>
-          </ul>
-        </li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+This guide has two parts:
 
-<div class="page-head">
-  <h1>Daily Devotional</h1>
-  <p id="today-date"></p>
-</div>
+- **Part 1 — Setup (Trent does this once).** Creating the GitHub account, publishing the site with Netlify, and connecting the church's domain.
+- **Part 2 — Weekly Updates (the church's tech contact).** How to add sermons and keep the site current. Print this part and give it to him.
 
-<section class="section">
-  <div class="wrap prose">
+**Total cost: $0/month.** GitHub is free, Netlify is free. The only cost is the domain renewal (~$10–20/year), which the church already pays.
 
-    <h2 class="section-title" style="text-align:center;">Verse for Today</h2>
-    <div class="section-rule"></div>
-    <div class="votd">
-      <p class="text" id="votd-text"></p>
-      <p class="ref" id="votd-ref"></p>
-    </div>
+---
 
-    <h2 class="section-title" style="text-align:center;">Today&rsquo;s Bible Reading</h2>
-    <div class="section-rule"></div>
-    <p style="text-align:center; color:var(--muted);">A chapter of Proverbs for the day of the month, and a New Testament chapter each day &mdash; read the New Testament through in under a year.</p>
-    <div class="reading-cards">
-      <div class="card">
-        <h3>Wisdom for Today</h3>
-        <p class="big" id="prov-label"></p>
-        <p><a class="btn" id="prov-link" href="bible.html">Read Now</a></p>
-      </div>
-      <div class="card">
-        <h3>New Testament Reading</h3>
-        <p class="big" id="nt-label"></p>
-        <p><a class="btn" id="nt-link" href="bible.html">Read Now</a></p>
-      </div>
-    </div>
+# PART 1 — One-Time Setup (Trent)
 
-    <blockquote style="margin-top:2.5rem;">
-      &ldquo;Thy word have I hid in mine heart, that I might not sin against thee.&rdquo; &mdash; Psalm 119:11
-    </blockquote>
+## Step 1: Create a GitHub account for the church
 
-  </div>
-</section>
+GitHub is a website that stores the website's files. Think of it as a Dropbox folder that the live website is built from — every time a file changes, the live site updates automatically.
 
-<section class="cta-band">
-  <h2>Make God&rsquo;s Word a Daily Habit</h2>
-  <p>Faith cometh by hearing, and hearing by the word of God.</p>
-  <a class="btn" href="bible.html">Open the Online Bible</a>
-</section>
+1. Go to **github.com** and click **Sign up**.
+2. Use an email the church controls (e.g., info@welcomebaptistonline.com).
+3. Pick a username like **welcomebaptistchurch**.
+4. Choose the **Free** plan.
+5. Save the username and password somewhere safe — you will hand these over later.
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div>
-      <h4>Welcome Baptist Church</h4>
-      <p>3415 Tom Cat Road<br>Piedmont, AL 36272<br><a href="tel:+12564927926">(256) 492-7926</a></p>
-    </div>
-    <div>
-      <h4>Service Times</h4>
-      <ul>
-        <li>Sunday School &mdash; 9:45 AM</li>
-        <li>Morning Worship &mdash; 10:45 AM</li>
-        <li>Evening Prayer &mdash; 5:45 PM</li>
-        <li>Evening Worship &mdash; 6:00 PM</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="beliefs.html">Statement of Faith</a></li>
-        <li><a href="missions.html">Missions</a></li>
-        <li><a href="sermons.html">Audio Sermons</a></li>
-        <li><a href="salvation.html">Plan of Salvation</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </div>
-  </div>
-  <p class="copyright">&copy; 2026 Welcome Baptist Church &middot; Pastor Roger Butler</p>
-</footer>
+> Why a church account instead of your own? So that when you hand over the keys, the church owns its own website. You'll add yourself as a collaborator so you can still help.
 
-<script>
-// One verse for each day of the month (KJV)
-const VERSES = [
-["For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.","John 3:16"],
-["This is the day which the LORD hath made; we will rejoice and be glad in it.","Psalm 118:24"],
-["Trust in the LORD with all thine heart; and lean not unto thine own understanding.","Proverbs 3:5"],
-["In all thy ways acknowledge him, and he shall direct thy paths.","Proverbs 3:6"],
-["And we know that all things work together for good to them that love God, to them who are the called according to his purpose.","Romans 8:28"],
-["I can do all things through Christ which strengtheneth me.","Philippians 4:13"],
-["But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.","Isaiah 40:31"],
-["The LORD is my shepherd; I shall not want.","Psalm 23:1"],
-["But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.","Matthew 6:33"],
-["Thy word is a lamp unto my feet, and a light unto my path.","Psalm 119:105"],
-["For whosoever shall call upon the name of the Lord shall be saved.","Romans 10:13"],
-["For by grace are ye saved through faith; and that not of yourselves: it is the gift of God.","Ephesians 2:8"],
-["Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.","2 Timothy 2:15"],
-["If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.","1 John 1:9"],
-["Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.","Joshua 1:9"],
-["God is our refuge and strength, a very present help in trouble.","Psalm 46:1"],
-["Come unto me, all ye that labour and are heavy laden, and I will give you rest.","Matthew 11:28"],
-["I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service.","Romans 12:1"],
-["I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me.","Galatians 2:20"],
-["Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.","Philippians 4:6"],
-["And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.","Philippians 4:7"],
-["Let the words of my mouth, and the meditation of my heart, be acceptable in thy sight, O LORD, my strength, and my redeemer.","Psalm 19:14"],
-["The name of the LORD is a strong tower: the righteous runneth into it, and is safe.","Proverbs 18:10"],
-["Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.","Isaiah 26:3"],
-["It is of the LORD'S mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.","Lamentations 3:22-23"],
-["Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.","John 14:6"],
-["But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.","Romans 5:8"],
-["Casting all your care upon him; for he careth for you.","1 Peter 5:7"],
-["Jesus Christ the same yesterday, and to day, and for ever.","Hebrews 13:8"],
-["Blessed is the man that walketh not in the counsel of the ungodly, nor standeth in the way of sinners, nor sitteth in the seat of the scornful.","Psalm 1:1"],
-["He which testifieth these things saith, Surely I come quickly. Amen. Even so, come, Lord Jesus.","Revelation 22:20"]
-];
+## Step 2: Create a repository and upload the website files
 
-// New Testament books: [name, chapters, index in the Online Bible's book list]
-const NT = [
-["Matthew",28,39],["Mark",16,40],["Luke",24,41],["John",21,42],["Acts",28,43],
-["Romans",16,44],["1 Corinthians",16,45],["2 Corinthians",13,46],["Galatians",6,47],["Ephesians",6,48],
-["Philippians",4,49],["Colossians",4,50],["1 Thessalonians",5,51],["2 Thessalonians",3,52],["1 Timothy",6,53],
-["2 Timothy",4,54],["Titus",3,55],["Philemon",1,56],["Hebrews",13,57],["James",5,58],
-["1 Peter",5,59],["2 Peter",3,60],["1 John",5,61],["2 John",1,62],["3 John",1,63],
-["Jude",1,64],["Revelation",22,65]
-];
+A "repository" (repo) is just a folder on GitHub.
 
-const now = new Date();
-document.getElementById('today-date').textContent =
-  now.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+1. Once logged in, click the **+** in the top-right corner → **New repository**.
+2. Repository name: **church-website**
+3. Set it to **Public** (required for free hosting; the files are just your public website anyway).
+4. Click **Create repository**.
+5. On the next page, click the link that says **uploading an existing file**.
+6. Open the `welcome-baptist` folder on your computer. Select ALL the files and the `css` folder inside it, and drag them into the GitHub upload box.
+   - Important: drag the *contents* of the folder, not the folder itself. `index.html` must end up at the top level of the repo.
+7. Scroll down, click **Commit changes** (green button).
 
-// Verse of the day (by day of month)
-const day = now.getDate();
-const v = VERSES[(day - 1) % VERSES.length];
-document.getElementById('votd-text').textContent = '“' + v[0] + '”';
-document.getElementById('votd-ref').textContent = v[1] + ' · KJV';
+Your files are now on GitHub. ("Commit" just means "save.")
 
-// Proverbs chapter = day of month (Proverbs has 31 chapters)
-document.getElementById('prov-label').textContent = 'Proverbs ' + day;
-document.getElementById('prov-link').href = 'bible.html?b=19&c=' + day;
+## Step 3: Publish the site with Netlify
 
-// NT chapter by day of year (260 NT chapters)
-const start = new Date(now.getFullYear(), 0, 0);
-const dayOfYear = Math.floor((now - start) / 86400000);
-let idx = (dayOfYear - 1) % 260;
-let book = 0;
-while (idx >= NT[book][1]) { idx -= NT[book][1]; book++; }
-const ntName = NT[book][0], ntChap = idx + 1;
-document.getElementById('nt-label').textContent = ntName + ' ' + ntChap;
-document.getElementById('nt-link').href = 'bible.html?b=' + NT[book][2] + '&c=' + ntChap;
-</script>
+Netlify is the free hosting service that takes the GitHub files and serves them as a live website.
 
-</body>
-</html>
+1. Go to **netlify.com** → **Sign up** → choose **Sign up with GitHub** (this links the two accounts — sign up while logged in to the church's GitHub account).
+2. Click **Add new site** → **Import an existing project** → **GitHub**.
+3. Authorize Netlify when asked, then select the **church-website** repository.
+4. Leave every setting at its default and click **Deploy**.
+5. In about a minute, the site is live at a temporary address like `random-name-12345.netlify.app`. Click it and verify the site looks right.
+6. Optional: in **Site settings → Change site name**, rename it to something like `welcomebaptist.netlify.app`.
+
+**This temporary address is also your demo link** — you can send it to the pastor before the domain is ever touched.
+
+From now on: any file changed in GitHub automatically republishes the live site in ~60 seconds. That's the whole magic.
+
+## Step 4: Point the church's domain at the new site
+
+The church owns **welcomebaptistonline.com**. Right now it points at their old host (Crownweb). You need access to wherever the domain is registered.
+
+1. Ask the church: "Who pays the bill for the website/domain?" Get the login for the domain registrar. If Crownweb manages the domain as part of their hosting package, ask Crownweb to either hand over the domain login or transfer the domain to a registrar the church controls (Namecheap or Cloudflare are good, ~$10–15/year). **Do not cancel Crownweb until the new site is live.**
+2. In Netlify: **Domain settings** → **Add custom domain** → enter `welcomebaptistonline.com`.
+3. Netlify will show you exactly what to change. The simplest option: at the registrar, set the domain's **nameservers** to the ones Netlify lists (this hands DNS to Netlify and everything else is automatic, including free HTTPS/the padlock icon).
+4. Wait up to a few hours for it to take effect. The old site is now replaced by the new one.
+5. THEN cancel the Crownweb hosting (keep the domain registration paid!).
+
+### Before cancelling Crownweb — copy the files off the old server
+
+The photos and sermon audio currently live on Crownweb's server. When it's cancelled, they vanish. Before that:
+
+1. Download the photos and sermon files from the old site.
+2. Convert sermons from .wma to .mp3 (free at cloudconvert.com, or ask Claude to do it) — .wma files don't play on iPhones.
+3. Upload them into the GitHub repo (create an `images` folder and a `sermons` folder) and update the links in the HTML.
+4. (Claude can do this whole step for you — just ask.)
+
+## Step 5: Hand over the keys
+
+Give the tech contact:
+
+1. The GitHub username and password (and the email account it's tied to).
+2. The Netlify login (same — it's the GitHub login).
+3. Part 2 of this guide, printed.
+
+To keep your own access for support: in the repo, go to **Settings → Collaborators → Add people** and add your personal GitHub account.
+
+---
+
+# PART 2 — Weekly Updates (Tech Contact's Cheat Sheet)
+
+Everything below happens in a web browser at **github.com**. You never need to install anything. Every change you save ("commit") automatically updates the live website about 60 seconds later.
+
+## How to add a new sermon
+
+1. Log in at github.com and open the **church-website** repository.
+2. **First, upload the audio file:** click the `sermons` folder → **Add file → Upload files** → drag the MP3 in → **Commit changes**.
+   - Name files consistently, e.g. `butler-2026-06-14.mp3` (no spaces).
+3. **Then, add it to the sermons page:** click `sermons.html` → click the **pencil icon** (top right of the file) to edit.
+4. Find the current month's section (search for `sermon-month`). Copy an existing sermon entry — it looks like this:
+
+```
+<li><span><span class="title">Bro. Roger Butler</span> <span class="date">&mdash; June 7, 2026</span></span>
+  <a class="listen" href="sermons/butler-2026-06-07.mp3">Listen</a></li>
+```
+
+5. Paste it directly above the previous week's entry, then change three things: the preacher's name, the date, and the file name in `href="..."`.
+6. Click **Commit changes** (green button). Done — check the live site in a minute.
+
+### Starting a new month
+Copy a month heading line and the `<ul class="sermon-list">` ... `</ul>` block, paste it above the old month, and update the month name.
+
+## How to update the calendar / events
+
+The events calendar is a Google Calendar embedded in the site. You don't edit the website at all:
+
+1. Log in to the church's Google account.
+2. Open Google Calendar and add/edit events normally.
+3. The website shows the changes automatically.
+
+(If the calendar page hasn't been set up yet, ask Trent — it's a one-time embed.)
+
+## How to change text anywhere on the site
+
+1. In the repo, click the page file (`index.html` = homepage, `about.html`, `services.html`, etc.).
+2. Click the **pencil icon** to edit.
+3. Find the text you want to change (Ctrl+F works). Change only the words between the `>` and `<` symbols — don't delete the tags around them.
+4. **Commit changes**.
+
+## If something breaks
+
+Don't panic — GitHub keeps every previous version forever.
+
+1. In the repo, click **History** (clock icon) on the file you changed.
+2. Find the last version that worked, open it, and restore it.
+3. Or just contact Trent: trent@dmprocessing.com.
+
+## Golden rules
+
+- Change words, not code. If you didn't mean to touch something starting with `<`, undo it.
+- One change at a time, then check the live site.
+- Never delete files you don't recognize (especially anything in `css`).
+- The site can always be fixed — nothing is permanent.

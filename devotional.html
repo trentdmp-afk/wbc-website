@@ -3,9 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact Us | Welcome Baptist Church</title>
-<meta name="description" content="Contact Welcome Baptist Church — 3415 Tom Cat Road, Piedmont, AL 36272. Phone (256) 492-7926.">
+<title>Daily Devotional | Welcome Baptist Church</title>
+<meta name="description" content="A verse for today and a daily Bible reading plan from Welcome Baptist Church.">
 <link rel="stylesheet" href="css/style.css">
+<style>
+  .votd {
+    background: var(--white); border: 1px solid var(--line); border-left: 5px solid var(--gold);
+    border-radius: 6px; padding: 2rem; text-align: center; margin-bottom: 2rem;
+  }
+  .votd .text { font-size: 1.25rem; font-style: italic; color: var(--navy); line-height: 1.6; margin-bottom: .75rem; }
+  .votd .ref { color: var(--gold); letter-spacing: .08em; text-transform: uppercase; font-size: .9rem; }
+  .reading-cards { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+  @media (min-width: 700px) { .reading-cards { grid-template-columns: 1fr 1fr; } }
+</style>
 </head>
 <body>
 
@@ -31,55 +41,60 @@
         <li><a href="sermons.html">Sermons</a></li>
         <li><a href="salvation.html">Plan of Salvation</a></li>
         <li class="has-drop">
-          <a href="bible.html">Resources <span class="caret">&#9662;</span></a>
+          <a href="bible.html" class="active">Resources <span class="caret">&#9662;</span></a>
           <ul class="drop">
             <li><a href="bible.html">Online Bible</a></li>
-            <li><a href="devotional.html">Daily Devotional</a></li>
+            <li><a href="devotional.html" class="active">Daily Devotional</a></li>
           </ul>
         </li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <div class="page-head">
-  <h1>Contact Us</h1>
-  <p>We would love to hear from you</p>
+  <h1>Daily Devotional</h1>
+  <p id="today-date"></p>
 </div>
 
 <section class="section">
-  <div class="wrap">
-    <div class="contact-grid">
-      <div class="prose">
-        <h2>Welcome Baptist Church</h2>
-        <p>
-          3415 Tom Cat Road<br>
-          Piedmont, AL 36272
-        </p>
-        <p>
-          <strong>Phone:</strong> <a href="tel:+12564927926">(256) 492-7926</a><br>
-          <strong>Email:</strong> <a href="mailto:info@welcomebaptistonline.com">info@welcomebaptistonline.com</a><br>
-          <strong>Pastor:</strong> <a href="mailto:rbutler@welcomebaptistonline.com">rbutler@welcomebaptistonline.com</a>
-        </p>
-        <h3>Suggestions</h3>
-        <p>We welcome any comments or suggestions you have about our website. Let us know how we can improve it or if there is something you would like to see added.</p>
-        <p><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=3415+Tom+Cat+Road,+Piedmont,+AL+36272">Get Directions</a></p>
+  <div class="wrap prose">
+
+    <h2 class="section-title" style="text-align:center;">Verse for Today</h2>
+    <div class="section-rule"></div>
+    <div class="votd">
+      <p class="text" id="votd-text"></p>
+      <p class="ref" id="votd-ref"></p>
+    </div>
+
+    <h2 class="section-title" style="text-align:center;">Today&rsquo;s Bible Reading</h2>
+    <div class="section-rule"></div>
+    <p style="text-align:center; color:var(--muted);">A chapter of Proverbs for the day of the month, and a New Testament chapter each day &mdash; read the New Testament through in under a year.</p>
+    <div class="reading-cards">
+      <div class="card">
+        <h3>Wisdom for Today</h3>
+        <p class="big" id="prov-label"></p>
+        <p><a class="btn" id="prov-link" href="bible.html">Read Now</a></p>
       </div>
-      <div>
-        <iframe class="map-frame" loading="lazy" allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=3415+Tom+Cat+Road,+Piedmont,+AL+36272&amp;output=embed"
-          title="Map to Welcome Baptist Church"></iframe>
+      <div class="card">
+        <h3>New Testament Reading</h3>
+        <p class="big" id="nt-label"></p>
+        <p><a class="btn" id="nt-link" href="bible.html">Read Now</a></p>
       </div>
     </div>
+
+    <blockquote style="margin-top:2.5rem;">
+      &ldquo;Thy word have I hid in mine heart, that I might not sin against thee.&rdquo; &mdash; Psalm 119:11
+    </blockquote>
+
   </div>
 </section>
 
 <section class="cta-band">
-  <h2>Join Us This Sunday</h2>
-  <p>Sunday School 9:45 AM &bull; Morning Worship 10:45 AM &bull; Evening Worship 6:00 PM</p>
-  <a class="btn" href="services.html">Service Times</a>
+  <h2>Make God&rsquo;s Word a Daily Habit</h2>
+  <p>Faith cometh by hearing, and hearing by the word of God.</p>
+  <a class="btn" href="bible.html">Open the Online Bible</a>
 </section>
 
 <footer class="site-footer">
@@ -110,6 +125,77 @@
   </div>
   <p class="copyright">&copy; 2026 Welcome Baptist Church &middot; Pastor Roger Butler</p>
 </footer>
+
+<script>
+// One verse for each day of the month (KJV)
+const VERSES = [
+["For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.","John 3:16"],
+["This is the day which the LORD hath made; we will rejoice and be glad in it.","Psalm 118:24"],
+["Trust in the LORD with all thine heart; and lean not unto thine own understanding.","Proverbs 3:5"],
+["In all thy ways acknowledge him, and he shall direct thy paths.","Proverbs 3:6"],
+["And we know that all things work together for good to them that love God, to them who are the called according to his purpose.","Romans 8:28"],
+["I can do all things through Christ which strengtheneth me.","Philippians 4:13"],
+["But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.","Isaiah 40:31"],
+["The LORD is my shepherd; I shall not want.","Psalm 23:1"],
+["But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.","Matthew 6:33"],
+["Thy word is a lamp unto my feet, and a light unto my path.","Psalm 119:105"],
+["For whosoever shall call upon the name of the Lord shall be saved.","Romans 10:13"],
+["For by grace are ye saved through faith; and that not of yourselves: it is the gift of God.","Ephesians 2:8"],
+["Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.","2 Timothy 2:15"],
+["If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.","1 John 1:9"],
+["Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the LORD thy God is with thee whithersoever thou goest.","Joshua 1:9"],
+["God is our refuge and strength, a very present help in trouble.","Psalm 46:1"],
+["Come unto me, all ye that labour and are heavy laden, and I will give you rest.","Matthew 11:28"],
+["I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service.","Romans 12:1"],
+["I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me.","Galatians 2:20"],
+["Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.","Philippians 4:6"],
+["And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.","Philippians 4:7"],
+["Let the words of my mouth, and the meditation of my heart, be acceptable in thy sight, O LORD, my strength, and my redeemer.","Psalm 19:14"],
+["The name of the LORD is a strong tower: the righteous runneth into it, and is safe.","Proverbs 18:10"],
+["Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.","Isaiah 26:3"],
+["It is of the LORD'S mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.","Lamentations 3:22-23"],
+["Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.","John 14:6"],
+["But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.","Romans 5:8"],
+["Casting all your care upon him; for he careth for you.","1 Peter 5:7"],
+["Jesus Christ the same yesterday, and to day, and for ever.","Hebrews 13:8"],
+["Blessed is the man that walketh not in the counsel of the ungodly, nor standeth in the way of sinners, nor sitteth in the seat of the scornful.","Psalm 1:1"],
+["He which testifieth these things saith, Surely I come quickly. Amen. Even so, come, Lord Jesus.","Revelation 22:20"]
+];
+
+// New Testament books: [name, chapters, index in the Online Bible's book list]
+const NT = [
+["Matthew",28,39],["Mark",16,40],["Luke",24,41],["John",21,42],["Acts",28,43],
+["Romans",16,44],["1 Corinthians",16,45],["2 Corinthians",13,46],["Galatians",6,47],["Ephesians",6,48],
+["Philippians",4,49],["Colossians",4,50],["1 Thessalonians",5,51],["2 Thessalonians",3,52],["1 Timothy",6,53],
+["2 Timothy",4,54],["Titus",3,55],["Philemon",1,56],["Hebrews",13,57],["James",5,58],
+["1 Peter",5,59],["2 Peter",3,60],["1 John",5,61],["2 John",1,62],["3 John",1,63],
+["Jude",1,64],["Revelation",22,65]
+];
+
+const now = new Date();
+document.getElementById('today-date').textContent =
+  now.toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+
+// Verse of the day (by day of month)
+const day = now.getDate();
+const v = VERSES[(day - 1) % VERSES.length];
+document.getElementById('votd-text').textContent = '“' + v[0] + '”';
+document.getElementById('votd-ref').textContent = v[1] + ' · KJV';
+
+// Proverbs chapter = day of month (Proverbs has 31 chapters)
+document.getElementById('prov-label').textContent = 'Proverbs ' + day;
+document.getElementById('prov-link').href = 'bible.html?b=19&c=' + day;
+
+// NT chapter by day of year (260 NT chapters)
+const start = new Date(now.getFullYear(), 0, 0);
+const dayOfYear = Math.floor((now - start) / 86400000);
+let idx = (dayOfYear - 1) % 260;
+let book = 0;
+while (idx >= NT[book][1]) { idx -= NT[book][1]; book++; }
+const ntName = NT[book][0], ntChap = idx + 1;
+document.getElementById('nt-label').textContent = ntName + ' ' + ntChap;
+document.getElementById('nt-link').href = 'bible.html?b=' + NT[book][2] + '&c=' + ntChap;
+</script>
 
 </body>
 </html>
