@@ -1,127 +1,223 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About Us | Welcome Baptist Church</title>
-<meta name="description" content="Welcome Baptist Church, established 1968, is an independent fundamental Baptist church in the Ball Play community east of Gadsden, Alabama.">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+/* Welcome Baptist Church — shared stylesheet */
+:root {
+  --navy: #1d3050;
+  --navy-dark: #15243d;
+  --gold: #b08d3f;
+  --cream: #faf7f0;
+  --ink: #2a2a2a;
+  --muted: #6b6b6b;
+  --line: #e3ddd0;
+  --white: #ffffff;
+}
 
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="index.html">
-      <span class="name">Welcome Baptist Church</span>
-      <span class="tag">Piedmont, Alabama &middot; Est. 1968</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('nav').classList.toggle('open')">&#9776;</button>
-    <nav class="site-nav" id="nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
-        <li><a href="beliefs.html">What We Believe</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="sermons.html">Sermons</a></li>
-        <li><a href="salvation.html">Plan of Salvation</a></li>
-        <li><a href="bible.html">Online Bible</a></li>
-        <li><a href="devotional.html">Devotional</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-<div class="page-head">
-  <h1>About Our Church</h1>
-  <p>Serving the Lord since 1968</p>
-</div>
+html { scroll-behavior: smooth; }
 
-<section class="section">
-  <div class="wrap prose">
-    <h2>Who We Are</h2>
-    <p>Welcome Baptist Church is an independent Baptist church located in the Ball Play community, just east of Gadsden, Alabama. The church was established in 1968; the first pastor was Bro. Robert Patterson. Bro. Roger Butler has been the pastor at Welcome Baptist Church since 1988.</p>
-    <p>There are more than 15,000 independent Baptist churches in America and at least 10,000 independent Baptist missionaries serving on mission fields worldwide.</p>
-    <p>Every independent Baptist church is an autonomous congregation. We are self-governing and self-supporting. The head of the church is the Lord Jesus Christ. The Bible is our sole authority for faith and practice. It is our desire to be a truly New Testament church.</p>
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.7;
+  font-size: 17px;
+}
 
-    <h2>A Message from Our Pastor</h2>
-    <blockquote>
-      <p>We are delighted to have you visit our church website. It is my privilege to serve as the pastor of the Welcome Baptist Church. Our heart-felt prayer is for people to know the Lord Jesus Christ as their personal Savior and become actively involved in a Bible-believing, Bible-preaching church that cares for them.</p>
-      <p>We make no apology for strong preaching, sound doctrine, and devotion to the Lord Jesus Christ and His Word.</p>
-      <p style="margin-bottom:0;">&mdash; Pastor Roger D. Butler &middot; Matthew 6:33</p>
-    </blockquote>
+img { max-width: 100%; height: auto; display: block; }
 
-    <h2>Hispanic Ministry</h2>
-    <p>Though we have one message &mdash; the message of the Lord Jesus Christ &mdash; and one ministry &mdash; the ministry He has given us to go into all the world and preach the gospel to every creature &mdash; God has blessed our church with a growing Hispanic ministry in the town of Collinsville, Alabama. This work has flourished with many souls saved and the gospel preached to the Hispanic community. We are proud of our brothers in Christ and marvel at how God has blessed this work.</p>
-  </div>
-</section>
+a { color: var(--navy); }
 
-<section class="section alt">
-  <div class="wrap">
-    <h2 class="section-title">Our Collinsville Congregation</h2>
-    <div class="section-rule"></div>
-    <div class="photo-grid">
-      <figure>
-        <img src="https://www.welcomebaptistonline.com/users/welcomebaptistonline_com/images/Collinsville%20Congregation.JPG" alt="Collinsville congregation">
-        <figcaption>Collinsville Congregation</figcaption>
-      </figure>
-      <figure>
-        <img src="https://www.welcomebaptistonline.com/users/welcomebaptistonline_com/images/Bro.%20Solomon.JPG" alt="Bro. Solomon leading the singing">
-        <figcaption>Bro. Solomon leading the singing</figcaption>
-      </figure>
-      <figure>
-        <img src="https://www.welcomebaptistonline.com/users/welcomebaptistonline_com/images/Beautiful%20Auditorium.JPG" alt="Church auditorium">
-        <figcaption>Our auditorium</figcaption>
-      </figure>
-      <figure>
-        <img src="https://www.welcomebaptistonline.com/users/welcomebaptistonline_com/images/The%20kids%20are%20letting%20their%20light%20shine.JPG" alt="Children singing">
-        <figcaption>The kids letting their lights shine</figcaption>
-      </figure>
-      <figure>
-        <img src="https://www.welcomebaptistonline.com/users/welcomebaptistonline_com/images/Congregation.JPG" alt="Congregation">
-        <figcaption>Congregation</figcaption>
-      </figure>
-      <figure>
-        <img src="https://www.welcomebaptistonline.com/users/welcomebaptistonline_com/images/Baby%20Samuel.JPG" alt="Baby Samuel">
-        <figcaption>Baby Samuel</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
+/* ---------- Header ---------- */
+.site-header {
+  background: linear-gradient(180deg, #253b61 0%, var(--navy) 100%);
+  border-bottom: 3px solid var(--gold);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+}
 
-<section class="cta-band">
-  <h2>Come Worship With Us</h2>
-  <p>You will find a warm welcome at Welcome Baptist Church.</p>
-  <a class="btn" href="services.html">See Service Times</a>
-</section>
+.header-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div>
-      <h4>Welcome Baptist Church</h4>
-      <p>3415 Tom Cat Road<br>Piedmont, AL 36272<br><a href="tel:+12564927926">(256) 492-7926</a></p>
-    </div>
-    <div>
-      <h4>Service Times</h4>
-      <ul>
-        <li>Sunday School &mdash; 9:45 AM</li>
-        <li>Morning Worship &mdash; 10:45 AM</li>
-        <li>Evening Prayer &mdash; 5:45 PM</li>
-        <li>Evening Worship &mdash; 6:00 PM</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="beliefs.html">Statement of Faith</a></li>
-        <li><a href="sermons.html">Audio Sermons</a></li>
-        <li><a href="salvation.html">Plan of Salvation</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </div>
-  </div>
-  <p class="copyright">&copy; 2026 Welcome Baptist Church &middot; Pastor Roger Butler</p>
-</footer>
+.brand { display: flex; flex-direction: column; text-decoration: none; color: var(--white); padding: .6rem 0; }
+.brand .name { font-size: 1.15rem; font-weight: bold; letter-spacing: .03em; }
+.brand .tag { font-size: .72rem; color: #c9d4e6; letter-spacing: .08em; text-transform: uppercase; }
 
-</body>
-</html>
+.nav-toggle {
+  background: none; border: 2px solid rgba(255,255,255,.5); border-radius: 6px;
+  color: var(--white); font-size: 1.3rem; line-height: 1;
+  padding: .35rem .6rem; cursor: pointer; display: block;
+}
+
+.site-nav { display: none; width: 100%; }
+.site-nav.open { display: block; }
+.site-nav ul { list-style: none; padding-bottom: .75rem; }
+.site-nav a {
+  display: block; color: #e8edf5; text-decoration: none;
+  padding: .65rem .5rem; border-top: 1px solid rgba(255,255,255,.12);
+  font-size: 1rem; white-space: nowrap; letter-spacing: .02em;
+}
+.site-nav a:hover { color: var(--gold); }
+.site-nav a.active { color: var(--white); background: rgba(255,255,255,.08); font-weight: bold; border-left: 3px solid var(--gold); }
+
+/* Dropdown menus */
+.caret { font-size: .6em; color: var(--gold); margin-left: .25rem; vertical-align: middle; }
+.site-nav .drop { list-style: none; }
+
+@media (min-width: 880px) {
+  .nav-toggle { display: none; }
+  .header-inner { flex-wrap: nowrap; }
+  .site-nav { display: block; width: auto; }
+  .site-nav > ul { display: flex; gap: .15rem; padding: 0; align-items: stretch; }
+  .site-nav a { border: none; padding: 1rem .7rem; font-size: .93rem; }
+  .site-nav a.active { border-left: none; box-shadow: inset 0 -3px 0 var(--gold); background: none; }
+  .has-drop { position: relative; }
+  .site-nav .drop {
+    display: none; position: absolute; top: 100%; left: 0; min-width: 215px;
+    background: var(--navy-dark); border-top: 3px solid var(--gold);
+    box-shadow: 0 10px 20px rgba(0,0,0,.35); border-radius: 0 0 6px 6px;
+    padding: .35rem 0; margin: 0;
+  }
+  .site-nav .has-drop:hover .drop,
+  .site-nav .has-drop:focus-within .drop { display: block; }
+  .site-nav .drop a { display: block; padding: .55rem 1.1rem; font-size: .92rem; box-shadow: none; }
+  .site-nav .drop a:hover { background: rgba(255,255,255,.08); color: var(--gold); }
+  .site-nav .drop a.active { box-shadow: none; color: var(--gold); background: none; }
+}
+
+@media (max-width: 879px) {
+  .header-inner { flex-wrap: wrap; }
+  .caret { display: none; }
+  .site-nav .drop { padding-left: 1.1rem; padding-bottom: 0; }
+  .site-nav .drop a { color: #b9c6db; font-size: .95rem; }
+}
+
+/* ---------- Announcement bar ---------- */
+.announce {
+  background: var(--gold); color: #fff; text-align: center;
+  padding: .5rem 1rem; font-size: .92rem; letter-spacing: .02em;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(rgba(21,36,61,.82), rgba(21,36,61,.82)),
+              url('https://www.welcomebaptistonline.com/users/welcomebaptistonline_com/images/Beautiful%20Auditorium.JPG') center/cover no-repeat;
+  color: var(--white);
+  text-align: center;
+  padding: 4.5rem 1.25rem;
+}
+.hero h1 { font-size: 2rem; line-height: 1.25; margin-bottom: .75rem; }
+.hero p.verse { font-style: italic; color: #d7dfec; max-width: 640px; margin: 0 auto 1.5rem; }
+.hero p.ref { color: var(--gold); font-size: .9rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.75rem; }
+
+@media (min-width: 700px) {
+  .hero { padding: 6.5rem 1.5rem; }
+  .hero h1 { font-size: 2.7rem; }
+}
+
+.btn {
+  display: inline-block; background: var(--gold); color: #fff;
+  text-decoration: none; padding: .7rem 1.6rem; border-radius: 4px;
+  font-size: 1rem; letter-spacing: .03em;
+}
+.btn:hover { background: #997a33; }
+.btn.ghost { background: transparent; border: 2px solid #c9d4e6; margin-left: .5rem; }
+.btn.ghost:hover { background: rgba(255,255,255,.1); }
+
+/* ---------- Layout ---------- */
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 1.25rem; }
+.section { padding: 3rem 0; }
+.section.alt { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+h2.section-title {
+  font-size: 1.6rem; color: var(--navy); text-align: center; margin-bottom: .4rem;
+}
+.section-rule {
+  width: 60px; height: 3px; background: var(--gold); margin: 0 auto 2rem;
+}
+
+/* ---------- Cards ---------- */
+.cards { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+@media (min-width: 700px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+.card {
+  background: var(--white); border: 1px solid var(--line); border-radius: 6px;
+  padding: 1.5rem; text-align: center;
+}
+.section.alt .card { background: var(--cream); }
+.card h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: .5rem; }
+.card p { font-size: .95rem; color: var(--muted); }
+.card .big { font-size: 1.3rem; color: var(--ink); margin: .25rem 0; }
+
+/* ---------- Times table ---------- */
+.times { width: 100%; max-width: 560px; margin: 0 auto; border-collapse: collapse; }
+.times td { padding: .8rem .5rem; border-bottom: 1px solid var(--line); }
+.times td:last-child { text-align: right; font-weight: bold; color: var(--navy); white-space: nowrap; }
+
+/* ---------- Prose pages ---------- */
+.page-head { background: var(--navy); color: var(--white); text-align: center; padding: 2.5rem 1.25rem; }
+.page-head h1 { font-size: 1.9rem; }
+.page-head h1::after { content: ""; display: block; width: 56px; height: 3px; background: var(--gold); margin: .65rem auto 0; }
+.page-head p { color: #c9d4e6; font-style: italic; margin-top: .35rem; }
+
+.prose { max-width: 760px; margin: 0 auto; }
+.prose h2 { color: var(--navy); font-size: 1.35rem; margin: 2rem 0 .6rem; }
+.prose h3 { color: var(--navy); font-size: 1.1rem; margin: 1.5rem 0 .4rem; }
+.prose p { margin-bottom: 1rem; }
+.prose ul { margin: 0 0 1rem 1.4rem; }
+.prose blockquote {
+  border-left: 4px solid var(--gold); background: var(--white);
+  padding: 1rem 1.25rem; margin: 1.25rem 0; font-style: italic;
+}
+.scripture { font-style: italic; color: var(--navy); }
+
+/* ---------- Sermons ---------- */
+.sermon-month { color: var(--navy); font-size: 1.2rem; margin: 2rem 0 .75rem; border-bottom: 2px solid var(--gold); padding-bottom: .3rem; }
+.sermon-list { list-style: none; }
+.sermon-list li {
+  background: var(--white); border: 1px solid var(--line); border-radius: 6px;
+  padding: .9rem 1.1rem; margin-bottom: .6rem;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.sermon-list .title { font-weight: bold; color: var(--ink); }
+.sermon-list .date { color: var(--muted); font-size: .9rem; }
+.sermon-list a.listen {
+  background: var(--navy); color: #fff; text-decoration: none;
+  padding: .4rem 1rem; border-radius: 4px; font-size: .9rem;
+}
+.sermon-list a.listen:hover { background: var(--navy-dark); }
+
+/* ---------- Contact ---------- */
+.contact-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+@media (min-width: 800px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+.map-frame { width: 100%; height: 320px; border: 1px solid var(--line); border-radius: 6px; }
+
+/* ---------- Photo grid ---------- */
+.photo-grid { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+@media (min-width: 700px) { .photo-grid { grid-template-columns: repeat(3, 1fr); } }
+.photo-grid figure { background: var(--white); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.photo-grid img { width: 100%; height: 180px; object-fit: cover; }
+.photo-grid figcaption { font-size: .85rem; color: var(--muted); padding: .5rem .75rem; text-align: center; }
+
+/* ---------- CTA band ---------- */
+.cta-band { background: var(--navy); color: var(--white); text-align: center; padding: 3rem 1.25rem; }
+.cta-band h2 { font-size: 1.5rem; margin-bottom: .5rem; }
+.cta-band p { color: #c9d4e6; margin-bottom: 1.5rem; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--navy-dark); color: #aebbd1; padding: 2.5rem 1.25rem; font-size: .92rem; }
+.footer-inner { max-width: 1060px; margin: 0 auto; display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+@media (min-width: 700px) { .footer-inner { grid-template-columns: 1fr 1fr 1fr; } }
+.site-footer h4 { color: var(--white); margin-bottom: .5rem; font-size: 1rem; }
+.site-footer a { color: #c9d4e6; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: .3rem; }
+.copyright { text-align: center; margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.12); font-size: .85rem; }
